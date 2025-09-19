@@ -288,6 +288,32 @@ export const groupBuys: GroupBuy[] = [
     freeShippingMin: 0,
     tags: ['HOT', '무료배송', '라온까사', '주방용품'],
   },
+  {
+    id: '12',
+    title: '[세니랩] 그래핀 패치 30매',
+    description: '그래핀 신소재 적용! 강한 점착력으로 신체 어디든 부착 가능. 장시간 서서 일하거나 앉아서 일하는 분들에게 추천',
+    images: [
+      'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
+    ],
+    originalPrice: 32000,
+    groupPrice: 19900,
+    discountRate: 38,
+    minParticipants: 50,
+    maxParticipants: 300,
+    currentParticipants: 189,
+    startDate: new Date('2025-01-17'),
+    endDate: new Date('2025-01-22'),
+    status: 'active',
+    category: '헬스케어',
+    seller: {
+      name: '구픽',
+      rating: 4.8,
+      verified: true,
+    },
+    shippingFee: 0,
+    freeShippingMin: 0,
+    tags: ['HOT', '그래핀', '통증완화', '발열패치'],
+  },
 ];
 
 export const getActiveGroupBuys = () => {

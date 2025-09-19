@@ -34,6 +34,7 @@ export default function HomePage() {
   const categories = [
     { id: 'all', name: '전체' },
     { id: '건강식품', name: '건강식품' },
+    { id: '헬스케어', name: '헬스케어' },
     { id: '뷰티', name: '뷰티' },
     { id: '생활/주방', name: '생활/주방' },
     { id: '가전', name: '가전제품' },

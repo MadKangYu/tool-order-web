@@ -1,0 +1,422 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <title>[에러] 에러페이지 - 시스템오류</title>
+    <style type="text/css">
+        body {
+            min-width: 1320px
+        }
+
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ul,
+        ol,
+        li,
+        dl,
+        dt,
+        dd,
+        table,
+        th,
+        td,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        button,
+        select {
+            margin: 0;
+            padding: 0
+        }
+
+        body,
+        input,
+        textarea,
+        select,
+        button,
+        table {
+            font-family: 나눔고딕, "Nanum Gothic", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Dotum", "돋움", "Helvetica", "sans-serif";
+            font-size: 12px;
+            line-height: 1.5em
+        }
+
+        img,
+        fieldset,
+        button {
+            border: 0
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        ul,
+        ol {
+            list-style: none
+        }
+
+        em,
+        address {
+            font-style: normal
+        }
+
+        a,
+        a:hover,
+        a:active,
+        a:focus {
+            text-decoration: none
+        }
+
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden
+        }
+
+        img,
+        span,
+        p,
+        em,
+        a {
+            vertical-align: top
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block
+        }
+
+        #u_skip {
+            position: relative;
+            z-index: 2147483647
+        }
+
+        #u_skip a {
+            position: absolute;
+            top: -300px;
+            left: 0;
+            width: 128px;
+            border: 1px solid #4ec53d;
+            background: url(http://static.naver.net/common/sp_u_skip.png) repeat-x scroll 0 -11px transparent;
+            text-align: center;
+            outline: medium none
+        }
+
+        #u_skip a:active,
+        #u_skip a:focus {
+            top: 0;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        #u_skip a span {
+            display: inline-block;
+            padding: 2px 6px 0 0;
+            background: url(http://static.naver.net/common/sp_u_skip.png) no-repeat scroll 100% 11px transparent;
+            font-size: 11px;
+            line-height: 26px;
+            color: #FFF;
+            letter-spacing: -1px
+        }
+
+        .layout_header {
+            position: relative;
+            z-index: 2
+        }
+
+        #content {
+            position: relative;
+            z-index: 1
+        }
+
+        .layout_wide {
+            overflow: hidden
+        }
+
+        .layout_wide:before,
+        .layout_wide:after {
+            content: '';
+            display: table
+        }
+
+        .layout_wide:after {
+            clear: both
+        }
+
+        .layout_inner {
+            position: relative;
+            width: 1280px;
+            height: 100%;
+            margin: 0 auto
+        }
+
+        .layout_inner:before,
+        .layout_inner:after {
+            content: '';
+            display: table
+        }
+
+        .layout_inner:after {
+            clear: both
+        }
+
+        .header_shopping {
+            position: relative;
+            color: #fff;
+            background-color: #292b2c
+        }
+
+        .header_shopping:before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            right: 0;
+            left: 0;
+            opacity: .07;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=7);
+            height: 1px;
+            background-color: #000
+        }
+
+        .header_shopping .global_area {
+            height: 37px
+        }
+
+        .header_shopping .global_area:before,
+        .header_shopping .global_area:after {
+            content: '';
+            display: table
+        }
+
+        .header_shopping .global_area:after {
+            clear: both
+        }
+
+        .header_shopping .global_area .gnb_area {
+            float: right
+        }
+
+        .header_shopping .global_area .gnb_area #gnb {
+            float: left;
+            top: 3px;
+            right: -9px
+        }
+
+        .header_shopping .global_area .gnb_area .my_area {
+            float: left;
+            margin: 3px -10px 0 0
+        }
+
+        .header_shopping .global_area .gnb_area .my_area>ul>li {
+            position: relative;
+            display: inline-block;
+            margin: 0 15px;
+            line-height: 28px;
+            letter-spacing: 0;
+            font-size: 11px;
+            color: #fff
+        }
+
+        .header_shopping .global_area .gnb_area .my_area>ul>li .bar {
+            float: left;
+            padding: 0 7px 0 6px
+        }
+
+        .header_shopping .global_area .gnb_area .my_area>ul>li>a {
+            float: left;
+            height: 28px;
+            line-height: 28px;
+            color: #fff;
+            vertical-align: middle
+        }
+
+        .header_shopping .global_area .gnb_area .my_area>ul>li>a.on~.layerpop_wrap {
+            display: block;
+        }
+
+        .header_shopping .global_area .gnb_area .my_area .bu {
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/arrow_down_gray_5x3.png);
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/arrow_down_gray_5x3.svg), none;
+            background-size: 5px 3px;
+            width: 5px;
+            height: 3px;
+            display: inline-block;
+            margin-left: 3px;
+            vertical-align: middle;
+            margin-top: -1px;
+        }
+
+        .header_shopping.error {
+            background-color: #fff;
+            color: #888
+        }
+
+        .header_shopping.error:before {
+            display: none
+        }
+
+        .header_shopping.error .global_area .gnb_area .my_area ul li,
+        .header_shopping.error .global_area .gnb_area .my_area ul li a {
+            color: #888
+        }
+
+        .module_error {
+            display: table;
+            width: 1280px;
+            height: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #e2e5e9
+        }
+
+        .module_error .inner {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center
+        }
+
+        .module_error .inner:before {
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/notice_error_75x67.png);
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/notice_error_75x67.svg), none;
+            -webkit-background-size: 75px 67px;
+            background-size: 75px 67px;
+            width: 75px;
+            height: 67px;
+            content: '';
+            display: inline-block
+        }
+
+        .module_error .title_error {
+            display: block;
+            margin-top: 26px;
+            font-size: 32px;
+            line-height: 1.28em;
+            color: #000
+        }
+
+        .module_error .text {
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.69em;
+            color: #888
+        }
+
+        .module_error .text.gap {
+            margin-top: 20px
+        }
+
+        .module_error .link {
+            color: #888;
+            text-decoration: underline
+        }
+
+        .module_error .area_box {
+            width: 600px;
+            margin: 20px auto;
+            background-color: #f9fafb;
+            border: 1px solid #edeff2;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .module_error .area_box.datetime {
+            padding: 20px
+        }
+
+        .module_error .area_box.recommend {
+            margin-top: 30px
+        }
+
+        .module_error .area_box .text {
+            line-height: 1.38em
+        }
+
+        .module_error .text_datetime {
+            position: relative;
+            display: inline-block;
+            padding-left: 22px;
+            font-size: 16px;
+            line-height: 18px;
+            color: #000;
+            font-weight: 600
+        }
+
+        .module_error .text_datetime:before {
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/icon_calendar_17x18.png);
+            background-image: url(http://img.shop.naver.net/storefarm/front/common/icon_calendar_17x18.svg), none;
+            -webkit-background-size: 17px 18px;
+            background-size: 17px 18px;
+            width: 17px;
+            height: 18px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            content: '';
+            margin-top: -11px
+        }
+
+        .module_error .title_box {
+            display: block;
+            padding: 20px 30px;
+            border-bottom: 1px solid #edeff2;
+            font-size: 16px;
+            color: #000;
+            text-align: left
+        }
+
+        .module_error .list_box {
+            margin: 4px 30px 25px
+        }
+
+        .module_error .item_box {
+            margin-top: 12px;
+            text-align: left
+        }
+
+        .module_error .link_box {
+            position: relative;
+            padding-left: 10px;
+            font-size: 13px;
+            line-height: 14px;
+            color: #444
+        }
+
+        .module_error .link_box:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '-'
+        }
+
+        .module_error .link_box:hover {
+            text-decoration: none
+        }
+
+        .module_error .area_button {
+            margin-top: 50px;
+            font-size: 0
+        }
+
+        .module_error .button {
+            display: inline-block;
+            width: 295px;
+            height: 50px;
+            line-height: 50p
