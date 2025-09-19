@@ -291,7 +291,7 @@ export const groupBuys: GroupBuy[] = [
   {
     id: '12',
     title: '[세니랩] 그래핀 패치 30매',
-    description: '그래핀 신소재 적용! 강한 점착력으로 신체 어디든 부착 가능. 장시간 서서 일하거나 앉아서 일하는 분들에게 추천',
+    description: '세니랩 그래핀 패치 30매. 장시간 서서 일하는 분, 앉아서 오랫동안 일하는 분, 무릎과 허리가 불편한 중장년층에게 추천',
     images: [
       'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
     ],
