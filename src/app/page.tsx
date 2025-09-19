@@ -5,6 +5,8 @@ import { groupBuys } from '@/lib/group-buy-data';
 import CountdownTimer from '@/components/CountdownTimer';
 import ProgressBar from '@/components/ProgressBar';
 import ProductModal from '@/components/ProductModal';
+import ShareModal from '@/components/ShareModal';
+import SearchFilter, { FilterOptions } from '@/components/SearchFilter';
 import { ShoppingCart, Users, Clock, TrendingUp, Share2, Heart } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useCartStore } from '@/lib/store';
@@ -15,6 +17,16 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shareProduct, setShareProduct] = useState<any>(null);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filters, setFilters] = useState<FilterOptions>({
+    priceRange: [0, 100000],
+    discountRate: 0,
+    categories: [],
+    status: ['active'],
+  });
+  const [sortBy, setSortBy] = useState('popular');
   const activeDeals = groupBuys.filter(gb => gb.status === 'active');
   const { addItem, getTotalItems } = useCartStore();
   const cartCount = getTotalItems();
@@ -23,14 +35,77 @@ export default function HomePage() {
     { id: 'all', name: '전체' },
     { id: '건강식품', name: '건강식품' },
     { id: '뷰티', name: '뷰티' },
+    { id: '생활/주방', name: '생활/주방' },
     { id: '가전', name: '가전제품' },
     { id: '패션', name: '패션' },
     { id: '식품', name: '식품' },
   ];
 
-  const filteredDeals = selectedCategory === 'all'
-    ? activeDeals
-    : activeDeals.filter(deal => deal.category === selectedCategory);
+  // Apply all filters and search
+  const getFilteredDeals = () => {
+    let deals = activeDeals;
+
+    // Category filter
+    if (selectedCategory !== 'all') {
+      deals = deals.filter(deal => deal.category === selectedCategory);
+    }
+
+    // Search query
+    if (searchQuery) {
+      deals = deals.filter(deal =>
+        deal.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        deal.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Price range filter
+    deals = deals.filter(deal =>
+      deal.groupPrice >= filters.priceRange[0] &&
+      deal.groupPrice <= filters.priceRange[1]
+    );
+
+    // Discount rate filter
+    deals = deals.filter(deal =>
+      deal.discountRate >= filters.discountRate
+    );
+
+    // Categories filter from SearchFilter
+    if (filters.categories.length > 0) {
+      deals = deals.filter(deal =>
+        filters.categories.includes(deal.category)
+      );
+    }
+
+    // Sort
+    switch (sortBy) {
+      case 'latest':
+        deals = [...deals].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+        break;
+      case 'discount':
+        deals = [...deals].sort((a, b) => b.discountRate - a.discountRate);
+        break;
+      case 'price-low':
+        deals = [...deals].sort((a, b) => a.groupPrice - b.groupPrice);
+        break;
+      case 'price-high':
+        deals = [...deals].sort((a, b) => b.groupPrice - a.groupPrice);
+        break;
+      case 'ending':
+        deals = [...deals].sort((a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime());
+        break;
+      case 'achievement':
+        deals = [...deals].sort((a, b) =>
+          (b.currentParticipants / b.minParticipants) - (a.currentParticipants / a.minParticipants)
+        );
+        break;
+      default: // popular
+        deals = [...deals].sort((a, b) => b.currentParticipants - a.currentParticipants);
+    }
+
+    return deals;
+  };
+
+  const filteredDeals = getFilteredDeals();
 
   const handleProductClick = (product: any) => {
     setSelectedProduct(product);
@@ -95,8 +170,15 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Search & Filter */}
+      <SearchFilter
+        onSearch={setSearchQuery}
+        onFilterChange={setFilters}
+        onSortChange={setSortBy}
+      />
+
       {/* Category Filter */}
-      <div className="bg-white border-b sticky top-16 z-40">
+      <div className="bg-white border-b sticky top-32 z-40">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex space-x-2 overflow-x-auto">
             {categories.map(cat => (
@@ -194,7 +276,18 @@ export default function HomePage() {
                     className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                     상세보기
                   </button>
-                  <button className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition">
+                  <button
+                    onClick={() => {
+                      setShareProduct({
+                        id: deal.id,
+                        title: deal.title,
+                        description: deal.description,
+                        price: deal.groupPrice,
+                        originalPrice: deal.originalPrice,
+                      });
+                      setIsShareModalOpen(true);
+                    }}
+                    className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition">
                     <Share2 className="h-5 w-5 text-gray-600" />
                   </button>
                 </div>
@@ -234,6 +327,15 @@ export default function HomePage() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           onOrder={handleOrder}
+        />
+      )}
+
+      {/* Share Modal */}
+      {shareProduct && (
+        <ShareModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          product={shareProduct}
         />
       )}
 

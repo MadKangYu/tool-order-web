@@ -142,6 +142,30 @@ const productDetails: Record<string, any> = {
       '✓ 여름철 두피 관리',
     ],
   },
+  '11': {
+    title: '[라온까사] 시그니처 미니멀 3종 냄비 세트',
+    detailImages: [
+      'https://image.yes24.com/goods/141216334/XL',
+      'https://enwel.hgodo.com/md/notice/notice.jpg',
+      'https://enwel.hgodo.com/md/SJC/SJC00025_1.jpg',
+      'https://shopping-phinf.pstatic.net/main_2419208/24192085526.20200902153643.jpg',
+      'https://shopping-phinf.pstatic.net/main_2419208/24192085526.1.jpg',
+      'https://shopping-phinf.pstatic.net/main_2419208/24192085526.2.jpg',
+      'https://shopping-phinf.pstatic.net/main_2419208/24192085526.3.jpg',
+    ],
+    description: '미니멀한 디자인의 프리미엄 3종 냄비 세트',
+    ingredients: '스테인리스 스틸, 알루미늄, 세라믹 코팅',
+    howToUse: '중약불에서 조리하며, 사용 후 중성세제로 세척하세요. 식기세척기 사용 가능합니다.',
+    storage: '건조한 곳에 보관하세요',
+    features: [
+      '✓ 18cm 편수 + 20cm 양수 + 28cm 찜기',
+      '✓ 인덕션, 가스레인지 모두 사용 가능',
+      '✓ 열전도율이 우수한 3중 바닥',
+      '✓ 식기세척기 사용 가능',
+      '✓ 미니멀한 디자인으로 주방 인테리어 효과',
+      '✓ 안전한 세라믹 코팅',
+    ],
+  },
 };
 
 const products = [
@@ -198,6 +222,15 @@ const products = [
     discountRate: 45,
     image: 'https://dht-x.com/web/product/big/202501/5a238a8765b647f858d8fe246d09d51a.jpg',
     unit: '500ml',
+  },
+  {
+    id: '11',
+    name: '[라온까사] 시그니처 미니멀 3종 냄비 세트',
+    price: 42900,
+    originalPrice: 62000,
+    discountRate: 31,
+    image: 'https://image.yes24.com/goods/141216334/XL',
+    unit: '세트',
   },
 ];
 

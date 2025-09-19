@@ -262,6 +262,32 @@ export const groupBuys: GroupBuy[] = [
     freeShippingMin: 30000,
     tags: ['쿨링', '두피케어', '멍게특허'],
   },
+  {
+    id: '11',
+    title: '[라온까사] 시그니처 미니멀 3종 냄비 세트',
+    description: '18cm편수+20cm양수+28cm찜기! 스타일리시한 주방의 필수 아이템',
+    images: [
+      'https://image.yes24.com/goods/141216334/XL',
+    ],
+    originalPrice: 62000,
+    groupPrice: 42900,
+    discountRate: 31,
+    minParticipants: 50,
+    maxParticipants: 200,
+    currentParticipants: 156,
+    startDate: new Date('2025-01-15'),
+    endDate: new Date('2025-01-22'),
+    status: 'active',
+    category: '생활/주방',
+    seller: {
+      name: '구픽',
+      rating: 4.7,
+      verified: true,
+    },
+    shippingFee: 0,
+    freeShippingMin: 0,
+    tags: ['HOT', '무료배송', '라온까사', '주방용품'],
+  },
 ];
 
 export const getActiveGroupBuys = () => {
