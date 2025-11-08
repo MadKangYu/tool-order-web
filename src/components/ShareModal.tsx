@@ -142,7 +142,7 @@ export default function ShareModal({ isOpen, onClose, product }: ShareModalProps
             <span className="text-xs">링크 복사</span>
           </button>
 
-          {typeof navigator !== 'undefined' && navigator.share && (
+          {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
             <button
               onClick={handleNativeShare}
               className="flex flex-col items-center p-4 bg-purple-50 hover:bg-purple-100 rounded-lg transition"
