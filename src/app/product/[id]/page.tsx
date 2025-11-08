@@ -166,7 +166,7 @@ const productDetails: Record<string, any> = {
       '✓ 안전한 세라믹 코팅',
     ],
   },
-  '9': {
+  '11': {
     title: '[세니랩] 그래핀 패치 30매',
     detailImages: [
       'https://image.auction.co.kr/itemimage/52/28/44/52284451b1.jpg',
