@@ -166,7 +166,7 @@ const productDetails: Record<string, any> = {
       '✓ 안전한 세라믹 코팅',
     ],
   },
-  '11': {
+  '12': {
     title: '[세니랩] 그래핀 패치 30매',
     detailImages: [
       'https://image.auction.co.kr/itemimage/52/28/44/52284451b1.jpg',
@@ -188,7 +188,7 @@ const productDetails: Record<string, any> = {
       '✓ 일상의 불편함을 해결하고 아름다움을 더하는 패치',
     ],
   },
-  '10': {
+  '13': {
     title: '[리앤티] 혀클리너 2개입',
     detailImages: [
       'https://shopping-phinf.pstatic.net/main_3456789/34567891234.1.jpg',
@@ -210,7 +210,7 @@ const productDetails: Record<string, any> = {
       '✓ 휴대용 케이스 포함으로 여행 시 편리',
     ],
   },
-  '11': {
+  '14': {
     title: '[워시테라피] 4in1 고농축 캡슐세제 50개입',
     detailImages: [
       'https://cdn.011st.com/11dims/resize/800x800/quality/75/11src/product/6931156039/B.webp?142144779',
